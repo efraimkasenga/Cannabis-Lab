@@ -47,94 +47,142 @@ class MyHomePage extends StatelessWidget {
             Column(
               children: [
                 CustomContainer(
-                  sizew: 300,
-                  sizeh: 350,
-                  color: grey.withAlpha(100),
-                  paddingAll: 24,
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: <Widget>[
-                      const Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          CustomText(
-                            'Cannabis Lab',
-                            color: grey,
+                  width: 300,
+                  height: 350,
+                  color: white.withOpacity(0.2),
+                  clipBehavior: Clip.antiAlias,
+                  child: Stack(
+                    children: [
+                      Positioned.fill(
+                        child: BackdropFilter(
+                          filter: ImageFilter.blur(sigmaX: 10, sigmaY: 10),
+                          child: Container(
+                            color: Colors.transparent,
                           ),
-                          CustomText('Sign up'),
-                        ],
+                        ),
                       ),
-                      const Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          CustomText(
-                            'Log in',
-                            fontSize: 24,
-                          ),
-                          CustomContainer(
-                            outlined: true,
-                            color: dark,
-                            paddingVertical: 4,
-                            paddingHorizontal: 8,
-                            child: Row(
+                      Padding(
+                        padding: const EdgeInsets.all(24),
+                        child: Column(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: <Widget>[
+                            const Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
                               children: [
-                                Icon(
-                                  Icons.facebook,
-                                  size: 10,
-                                ),
                                 CustomText(
-                                  'Facebook',
-                                  fontSize: 10,
+                                  'Cannabis Lab',
+                                  color: grey,
+                                ),
+                                CustomText('Sign up'),
+                              ],
+                            ),
+                            const Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              children: [
+                                CustomText(
+                                  'Log in',
+                                  fontSize: 24,
+                                ),
+                                CustomContainer(
+                                  outlined: true,
+                                  color: dark,
+                                  paddingVertical: 4,
+                                  paddingHorizontal: 8,
+                                  child: Row(
+                                    children: [
+                                      Icon(
+                                        Icons.facebook,
+                                        size: 10,
+                                      ),
+                                      CustomText(
+                                        'Facebook',
+                                        fontSize: 10,
+                                      ),
+                                    ],
+                                  ),
                                 ),
                               ],
                             ),
-                          ),
-                        ],
-                      ),
-                      Column(
-                        children: [
-                          const CustomTextField(label: 'e-mail address'),
-                          vgap,
-                          const CustomTextField(
-                              label: 'password',
-                              suffix: CustomContainer(
-                                  sizew: 60,
-                                  marginAll: 8,
-                                  color: white,
-                                  child: CustomText(
-                                    'i forgot',
-                                    fontSize: 10,
-                                  ))),
-                        ],
-                      ),
-                      Row(
-                        children: [
-                          const Expanded(
-                            child: CustomText(
-                              'For use by adults only (18 years of age and older. Keep out of reach of children and pets in case of accidental ingestion contact our hotline',
-                              fontSize: 10,
+                            Column(
+                              children: [
+                                const CustomTextField(
+                                    prefixIcon: Icon(
+                                      Icons.email_outlined,
+                                      size: 10,
+                                      color: dark,
+                                    ),
+                                    label: 'e-mail address'),
+                                vgap,
+                                const CustomTextField(
+                                    label: 'password',
+                                    prefixIcon: Icon(
+                                      Icons.key_rounded,
+                                      size: 10,
+                                      color: dark,
+                                    ),
+                                    suffix: CustomContainer(
+                                        width: 60,
+                                        marginAll: 8,
+                                        color: white,
+                                        child: CustomText('i forgot',
+                                            fontSize: 10,
+                                            fontWeight: FontWeight.w600))),
+                              ],
                             ),
-                          ),
-                          hgap,
-                          Switch(
-                            activeTrackColor: dark,
-                            materialTapTargetSize: MaterialTapTargetSize.padded,
-                            value: true,
-                            onChanged: (value) => null,
-                          )
-                        ],
-                      ),
-                      const CustomText(
-                        'Please consume responsibly!',
-                        fontSize: 10,
-                        fontWeight: FontWeight.bold,
+                            Row(
+                              children: [
+                                const Expanded(
+                                  child: CustomText(
+                                    'For use by adults only (18 years of age and older. Keep out of reach of children and pets in case of accidental ingestion contact our hotline',
+                                    fontSize: 10,
+                                  ),
+                                ),
+                                hgap,
+                                SizedBox(
+                                  height: 32,
+                                  width: 44,
+                                  child: LayoutBuilder(builder: (context, c) {
+                                    return Stack(
+                                      alignment: Alignment.center,
+                                      children: [
+                                        CustomContainer(
+                                            width: c.maxWidth,
+                                            height: c.maxHeight * 0.5,
+                                            color: dark,
+                                            child: const SizedBox()),
+                                        Positioned(
+                                          right: 0,
+                                          height: c.maxHeight,
+                                          child: CustomContainer(
+                                              circular: true,
+                                              width: c.maxHeight,
+                                              color: dark,
+                                              child: const Icon(
+                                                Icons.arrow_forward_ios_rounded,
+                                                color: white,
+                                                size: 12,
+                                              )),
+                                        )
+                                      ],
+                                    );
+                                  }),
+                                )
+                              ],
+                            ),
+                            const CustomText(
+                              'Please consume responsibly!',
+                              fontSize: 10,
+                              fontWeight: FontWeight.bold,
+                            ),
+                          ],
+                        ),
                       ),
                     ],
                   ),
                 ),
                 vgap,
                 const CustomContainer(
-                  sizew: 300,
+                  width: 300,
                   paddingAll: 16,
                   color: dark,
                   child: Column(
@@ -165,15 +213,15 @@ class MyHomePage extends StatelessWidget {
               ],
             ),
             CustomContainer(
-              sizew: 300,
-              sizeh: 466,
+              width: 300,
+              height: 466,
               color: white,
               child: Stack(
                 alignment: Alignment.center,
                 children: [
                   const CustomContainer(
-                      sizew: 150,
-                      sizeh: 150,
+                      width: 150,
+                      height: 150,
                       color: yellow,
                       circular: true,
                       child: SizedBox()),
@@ -183,72 +231,117 @@ class MyHomePage extends StatelessWidget {
                         child: CustomContainer(
                           paddingAll: 16,
                           marginAll: 8,
-                          color: grey.withAlpha(100),
-                          child: const Column(
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                            crossAxisAlignment: CrossAxisAlignment.stretch,
+                          color: grey.withOpacity(0.2),
+                          clipBehavior: Clip.antiAlias,
+                          child: Stack(
                             children: [
-                              Column(
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                children: [
-                                  CustomText(
-                                    'Thu',
-                                    fontSize: 32,
-                                    fontWeight: FontWeight.w400,
+                              Positioned.fill(
+                                child: BackdropFilter(
+                                  filter:
+                                      ImageFilter.blur(sigmaX: 10, sigmaY: 10),
+                                  child: Container(
+                                    color: Colors.transparent,
                                   ),
-                                  CustomText(
-                                    '24th',
-                                    fontSize: 32,
-                                    color: grey,
-                                    fontWeight: FontWeight.w400,
+                                ),
+                              ),
+                              const Column(
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceBetween,
+                                crossAxisAlignment: CrossAxisAlignment.stretch,
+                                children: [
+                                  Column(
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.start,
+                                    children: [
+                                      CustomText(
+                                        'Thu',
+                                        fontSize: 32,
+                                        fontWeight: FontWeight.w400,
+                                      ),
+                                      CustomText(
+                                        '24th',
+                                        fontSize: 32,
+                                        color: grey,
+                                        fontWeight: FontWeight.w400,
+                                      ),
+                                    ],
                                   ),
-                                ],
-                              ),
-                              Column(
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                children: [
-                                  CustomText('18 PM', fontSize: 12),
-                                  CustomText('Kerkstraat 128', fontSize: 12),
-                                  CustomText('Amsterdam', fontSize: 12),
-                                ],
-                              ),
-                              Column(
-                                children: [
-                                  Icon(Icons.incomplete_circle_rounded),
-                                  CustomText('C.Lab'),
+                                  Column(
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.start,
+                                    children: [
+                                      CustomText('18 PM', fontSize: 12),
+                                      CustomText('Kerkstraat 128',
+                                          fontSize: 12),
+                                      CustomText('Amsterdam', fontSize: 12),
+                                    ],
+                                  ),
+                                  Column(
+                                    children: [
+                                      Icon(Icons.incomplete_circle_rounded),
+                                      CustomText('C.Lab'),
+                                    ],
+                                  ),
                                 ],
                               ),
                             ],
                           ),
                         ),
                       ),
-                      const Expanded(
+                      Expanded(
                         child: CustomContainer(
                           paddingAll: 16,
                           child: Column(
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            crossAxisAlignment: CrossAxisAlignment.end,
                             children: [
-                              Column(
+                              const Column(
                                 crossAxisAlignment: CrossAxisAlignment.end,
                                 children: [
                                   CustomText('Grand opening'),
                                   CustomText('New store'),
                                 ],
                               ),
-                              Row(
-                                mainAxisAlignment: MainAxisAlignment.end,
-                                children: [
-                                  CustomContainer(
-                                      paddingAll: 8,
-                                      color: dark,
-                                      child: CustomText('Join in',
-                                          fontSize: 12, color: white)),
-                                  CustomContainer(
-                                      circular: true,
-                                      paddingAll: 16,
-                                      color: dark,
-                                      child: CustomText('>', color: white)),
-                                ],
+                              SizedBox(
+                                width: 96,
+                                height: 32,
+                                child: LayoutBuilder(builder: (context, c) {
+                                  return Stack(
+                                    alignment: Alignment.center,
+                                    clipBehavior: Clip.antiAlias,
+                                    children: [
+                                      CustomContainer(
+                                          height: 16,
+                                          width: c.maxWidth,
+                                          color: dark,
+                                          child: const SizedBox()),
+                                      Row(
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.end,
+                                        children: [
+                                          CustomContainer(
+                                              width: c.maxWidth * 0.65,
+                                              paddingAll: 8,
+                                              color: dark,
+                                              child: const CustomText('Join in',
+                                                  fontSize: 10, color: white)),
+                                          const Spacer(),
+                                          CustomContainer(
+                                              width: c.maxHeight,
+                                              circular: true,
+                                              height: c.maxHeight,
+                                              color: dark,
+                                              child: const Icon(
+                                                Icons
+                                                    .arrow_forward_ios_outlined,
+                                                color: white,
+                                                size: 12,
+                                              )),
+                                        ],
+                                      ),
+                                    ],
+                                  );
+                                }),
                               ),
                             ],
                           ),
@@ -269,27 +362,31 @@ class MyHomePage extends StatelessWidget {
 class CustomTextField extends StatelessWidget {
   final String label;
   final Widget? suffix;
-  const CustomTextField({super.key, required this.label, this.suffix});
+  final Widget? prefixIcon;
+  const CustomTextField(
+      {super.key, required this.label, this.prefixIcon, this.suffix});
 
   @override
   Widget build(BuildContext context) {
     return SizedBox(
       height: 40,
       child: TextField(
-        style: GoogleFonts.montserrat(fontSize: 12),
+        style:
+            GoogleFonts.montserrat(fontSize: 12, fontWeight: FontWeight.w600),
         decoration: InputDecoration(
             isDense: true,
-            labelStyle: GoogleFonts.montserrat(fontSize: 12),
-            fillColor: grey,
+            labelStyle: GoogleFonts.montserrat(
+                fontSize: 12, fontWeight: FontWeight.w600),
+            fillColor: grey.withAlpha(100),
             filled: true,
             suffixIcon: suffix,
-            prefixIcon: const CustomContainer(
+            prefixIcon: CustomContainer(
                 marginAll: 8,
-                sizew: 24,
-                sizeh: 24,
+                width: 24,
+                height: 24,
                 circular: true,
-                color: white,
-                child: Text('i')),
+                color: white.withAlpha(100),
+                child: prefixIcon ?? const SizedBox.shrink()),
             labelText: label,
             floatingLabelBehavior: FloatingLabelBehavior.never,
             border: const OutlineInputBorder(
@@ -304,7 +401,8 @@ class CustomContainer extends StatelessWidget {
   final Color? color;
   final bool outlined, circular;
   final Widget child;
-  final double? sizeh, sizew;
+  final double? height, width;
+  final Clip clipBehavior;
   final double left,
       top,
       right,
@@ -323,8 +421,8 @@ class CustomContainer extends StatelessWidget {
   const CustomContainer({
     super.key,
     this.color,
-    this.sizeh,
-    this.sizew,
+    this.height,
+    this.width,
     this.circular = false,
     this.outlined = false,
     this.bottom = 0,
@@ -341,14 +439,16 @@ class CustomContainer extends StatelessWidget {
     this.marginAll = 0,
     this.marginHorizontal = 0,
     this.marginVertical = 0,
+    this.clipBehavior = Clip.none,
     required this.child,
   });
 
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: sizeh,
-      width: sizew,
+      clipBehavior: clipBehavior,
+      height: height,
+      width: width,
       padding: paddingAll != 0
           ? EdgeInsets.all(paddingAll)
           : paddingHorizontal != 0 || paddingVertical != 0
