@@ -1,4 +1,4 @@
-import 'package:cannabis/main.dart';
+import 'package:cannabis/constants.dart';
 import 'package:flutter/material.dart';
 
 class CustomContainer extends StatelessWidget {

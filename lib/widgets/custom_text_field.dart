@@ -1,4 +1,4 @@
-import 'package:cannabis/main.dart';
+import 'package:cannabis/constants.dart';
 import 'package:cannabis/widgets/custom_container.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
