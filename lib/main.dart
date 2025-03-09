@@ -1,14 +1,12 @@
 import 'dart:ui';
 
-import 'package:cannabis/constants.dart'; 
-import 'package:cannabis/widgets/export_widgets.dart'; 
+import 'package:cannabis/constants.dart';
+import 'package:cannabis/widgets/export_widgets.dart';
 import 'package:flutter/material.dart';
 
 void main() {
   runApp(const MyApp());
 }
-
-
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
@@ -35,11 +33,13 @@ class MyHomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: white,
+      backgroundColor: grey,
       body: Container(
         decoration: const BoxDecoration(
             image: DecorationImage(
-                image: AssetImage('assets/bg.jpg'), fit: BoxFit.cover, opacity: 0.5)),
+                image: AssetImage('assets/bg.jpg'),
+                fit: BoxFit.cover,
+                opacity: 0.8)),
         child: Center(
           child: SingleChildScrollView(
             physics: const BouncingScrollPhysics(),
@@ -54,16 +54,15 @@ class MyHomePage extends StatelessWidget {
                     CustomContainer(
                       width: 300,
                       height: 350,
-                      // color: white.withOpacity(0.2),
+                      color: grey.withAlpha(10),
                       clipBehavior: Clip.antiAlias,
                       child: LayoutBuilder(builder: (context, c) {
                         return Stack(
                           children: [
                             Positioned.fill(
                               child: BackdropFilter(
-                                filter: ImageFilter.blur(
-                                    sigmaX: smallTextSize,
-                                    sigmaY: smallTextSize),
+                                filter:
+                                    ImageFilter.blur(sigmaX: 10, sigmaY: 10),
                                 child: Container(
                                   color: Colors.transparent,
                                 ),
@@ -81,7 +80,7 @@ class MyHomePage extends StatelessWidget {
                                     children: [
                                       CustomText(
                                         'Cannabis Lab',
-                                        color: white,
+                                        color: dark,
                                       ),
                                       CustomText('Sign up'),
                                     ],
@@ -276,7 +275,10 @@ class MyHomePage extends StatelessWidget {
                                       Column(
                                         children: [
                                           Icon(Icons.incomplete_circle_rounded),
-                                          CustomText('C.Lab'),
+                                          CustomText(
+                                            'C.Lab',
+                                            fontSize: smallTextSize,
+                                          ),
                                         ],
                                       ),
                                     ],
