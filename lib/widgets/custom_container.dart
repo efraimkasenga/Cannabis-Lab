@@ -1,12 +1,12 @@
-import 'dart:ui';
+import 'package:cannabis/main.dart';
 import 'package:flutter/material.dart';
 
 class CustomContainer extends StatelessWidget {
+  final Clip clipBehavior;
   final Color? color;
   final bool outlined, circular;
   final Widget child;
-  final double? height, width;
-  final Clip clipBehavior;
+  final double? height, width, radius;
   final double left,
       top,
       right,
@@ -27,6 +27,7 @@ class CustomContainer extends StatelessWidget {
     this.color,
     this.height,
     this.width,
+    this.radius,
     this.circular = false,
     this.outlined = false,
     this.bottom = 0,
@@ -71,7 +72,9 @@ class CustomContainer extends StatelessWidget {
             ? Border.all(color: color ?? Colors.transparent, width: 0.5)
             : null,
         shape: circular ? BoxShape.circle : BoxShape.rectangle,
-        borderRadius: !circular ? BorderRadius.circular(24) : null,
+        borderRadius: !circular
+            ? BorderRadius.circular(radius ?? defaultSpacing * 1.5)
+            : null,
       ),
       child: Center(child: child),
     );

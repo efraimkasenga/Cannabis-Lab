@@ -73,12 +73,12 @@ class MyHomePage extends StatelessWidget {
                               ),
                             ),
                           ),
-                          const Padding(
-                            padding: EdgeInsets.all(largeTextSize),
+                          Padding(
+                            padding: const EdgeInsets.all(largeTextSize),
                             child: Column(
                               mainAxisAlignment: MainAxisAlignment.spaceBetween,
                               children: <Widget>[
-                                Row(
+                                const Row(
                                   mainAxisAlignment:
                                       MainAxisAlignment.spaceBetween,
                                   children: [
@@ -89,7 +89,7 @@ class MyHomePage extends StatelessWidget {
                                     CustomText('Sign up'),
                                   ],
                                 ),
-                                Row(
+                                const Row(
                                   mainAxisAlignment:
                                       MainAxisAlignment.spaceBetween,
                                   children: [
@@ -108,6 +108,7 @@ class MyHomePage extends StatelessWidget {
                                             Icons.facebook,
                                             size: smallTextSize,
                                           ),
+                                          SizedBox(width: 4),
                                           CustomText(
                                             'Facebook',
                                             fontSize: smallTextSize,
@@ -119,31 +120,43 @@ class MyHomePage extends StatelessWidget {
                                 ),
                                 Column(
                                   children: [
-                                    CustomTextField(
+                                    const CustomTextField(
                                         prefixIcon: Icon(
                                           Icons.email_outlined,
                                           size: smallTextSize,
                                           color: dark,
                                         ),
                                         label: 'e-mail address'),
-                                    SizedBox(height: defaultSpacing),
+                                    const SizedBox(height: defaultSpacing),
                                     CustomTextField(
-                                        label: 'password',
-                                        prefixIcon: Icon(
-                                          Icons.key_rounded,
-                                          size: smallTextSize,
-                                          color: dark,
+                                      label: 'password',
+                                      prefixIcon: const Icon(
+                                        Icons.key_rounded,
+                                        size: smallTextSize,
+                                        color: dark,
+                                      ),
+                                      suffix: InkWell(
+                                        onTap: () {
+                                          
+                                        },
+                                        borderRadius: const BorderRadius.all(
+                                            Radius.circular(
+                                                defaultSpacing * 1.5)),
+                                        child: const CustomContainer(
+                                          width: 60,
+                                          marginAll: 8,
+                                          color: white,
+                                          child: CustomText(
+                                            'i forgot',
+                                            fontSize: smallTextSize,
+                                            fontWeight: FontWeight.w600,
+                                          ),
                                         ),
-                                        suffix: CustomContainer(
-                                            width: 60,
-                                            marginAll: 8,
-                                            color: white,
-                                            child: CustomText('i forgot',
-                                                fontSize: smallTextSize,
-                                                fontWeight: FontWeight.w600))),
+                                      ),
+                                    ),
                                   ],
                                 ),
-                                Row(
+                                const Row(
                                   children: [
                                     Flexible(
                                       child: CustomText(
@@ -155,7 +168,7 @@ class MyHomePage extends StatelessWidget {
                                     CustomSwitch()
                                   ],
                                 ),
-                                CustomText(
+                                const CustomText(
                                   'Please consume responsibly!',
                                   fontSize: smallTextSize,
                                   fontWeight: FontWeight.bold,
@@ -217,6 +230,7 @@ class MyHomePage extends StatelessWidget {
                           child: CustomContainer(
                             paddingAll: defaultSpacing,
                             marginAll: 8,
+                            radius: defaultSpacing,
                             color: grey.withOpacity(0.2),
                             clipBehavior: Clip.antiAlias,
                             child: Stack(
@@ -247,7 +261,7 @@ class MyHomePage extends StatelessWidget {
                                           fontWeight: FontWeight.w400,
                                         ),
                                         CustomText(
-                                          '24 th',
+                                          '24th',
                                           fontSize: xlargeTextSize,
                                           color: grey,
                                           fontWeight: FontWeight.w400,
